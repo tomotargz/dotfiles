@@ -16,6 +16,8 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'cocopon/iceberg.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'NLKNguyen/papercolor-theme'
 if has('lua')
     Plug 'Shougo/neocomplete'
 endif
