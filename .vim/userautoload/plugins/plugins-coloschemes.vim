@@ -7,5 +7,5 @@ let g:PaperColor_Theme_Options = {
   \     }
   \   }
   \ }
-set background=dark
+set background=light
 colorscheme PaperColor
