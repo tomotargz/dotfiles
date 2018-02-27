@@ -18,6 +18,8 @@ Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'cocopon/iceberg.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'kannokanno/previm'
+Plug 'tyru/open-browser.vim'
 if has('lua')
     Plug 'Shougo/neocomplete'
 endif
