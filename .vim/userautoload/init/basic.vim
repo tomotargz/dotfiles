@@ -44,6 +44,8 @@ set statusline+=%h
 set statusline+=%w
 " これ以降は右寄せ表示
 set statusline+=%=
+" file encoding
+set statusline+=%{&fileencoding}:
 " 現在行数/全行数
 set statusline+=%l/%L
 set laststatus=2
