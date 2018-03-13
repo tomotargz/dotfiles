@@ -1,4 +1,4 @@
-if v:version >= 7.4 && has('patch1689')
+if v:version > 7.4 || (v:version == 7.4 && has('patch1689'))
     let g:go_fmt_command = "goimports"
     let g:go_auto_type_info = 1
     " let g:go_auto_sameids = 1

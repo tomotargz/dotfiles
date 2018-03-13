@@ -13,7 +13,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'romainl/Apprentice'
 Plug 'nanotech/jellybeans.vim'
 Plug 'w0ng/vim-hybrid'
-if v:version >= 7.4 && has('patch1689')
+if v:version > 7.4 || (v:version == 7.4 && has('patch1689'))
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 endif
 Plug 'AndrewRadev/splitjoin.vim'
