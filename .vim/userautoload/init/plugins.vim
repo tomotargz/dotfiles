@@ -13,7 +13,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'romainl/Apprentice'
 Plug 'nanotech/jellybeans.vim'
 Plug 'w0ng/vim-hybrid'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+if v:version >= 7.4 && has('patch1689')
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+endif
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'cocopon/iceberg.vim'
