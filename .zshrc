@@ -3,7 +3,7 @@ autoload -U compinit
 compinit
 
 # プロンプト
-PROMPT="%F{cyan}%n@%m%f %~
+PROMPT="%F{cyan}%n@%M%f %~
 $ "
 
 if [ -e "$HOME/.zshrc_local" ]; then
