@@ -3,7 +3,7 @@ autoload -U compinit
 compinit
 
 # プロンプト
-PROMPT="%F{cyan}%n@%M%f %~
+PROMPT="%F{blue}%n@%M%f %~
 $ "
 
 if [ -e "$HOME/.zshrc_local" ]; then
@@ -25,3 +25,7 @@ setopt hist_ignore_dups
 
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
+
+if which tmux >/dev/null 2>&1; then
+    [[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
+fi

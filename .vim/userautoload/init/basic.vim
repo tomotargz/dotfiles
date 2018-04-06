@@ -2,15 +2,20 @@
 " 行番号を表示
 set number
 " 現在以外の行番号を相対表示
-set relativenumber
+" set relativenumber
 " 現在の行をハイライト
-set cursorline
+" set cursorline
+" 80列をハイライト
+" set colorcolumn=80
 " 折り返し表示しない
 set nowrap
+" 開いたファイルが.mdと.txtの時は折り返す
+augroup basic_vimrc
+    autocmd!
+    autocmd BufNewFile,BufRead *.md,*.txt setlocal wrap breakindent
+augroup END
 " 画面に収まらない文字を@@で表示しない
 set display=lastline
-" 80列をハイライト
-set colorcolumn=80
 " 警告音をミュート
 set visualbell t_vb=
 " カーソル形状をモードごとに変える
@@ -31,6 +36,7 @@ set scrolloff=5
 " 対応する括弧を強調する
 set showmatch
 set matchtime=1
+
 
 " ステータスライン-------------------------------------------------------------
 set statusline=%f

@@ -13,6 +13,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'romainl/Apprentice'
 Plug 'nanotech/jellybeans.vim'
 Plug 'w0ng/vim-hybrid'
+Plug 'nightsense/simplifysimplify'
 if v:version > 704 || (v:version == 704 && has('patch1689'))
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 endif
@@ -23,6 +24,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'kannokanno/previm'
 Plug 'tyru/open-browser.vim'
+Plug 'crusoexia/vim-dream'
 if has('lua')
     Plug 'Shougo/neocomplete'
 endif
