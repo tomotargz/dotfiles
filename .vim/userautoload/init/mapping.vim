@@ -9,6 +9,7 @@ nnoremap <leader>h :noh<cr>
 nnoremap j gj
 nnoremap k gk
 nnoremap Y y$
+nnoremap q <NOP>
 
 nnoremap <C-]> g<C-]>
 
