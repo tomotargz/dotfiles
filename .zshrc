@@ -30,3 +30,5 @@ setopt EXTENDED_HISTORY
 if which tmux >/dev/null 2>&1; then
     [[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
 fi
+
+alias repo='cd $(ghq list -p | peco)'
