@@ -4,7 +4,9 @@ autoload -U compinit
 compinit
 
 # プロンプト
-PROMPT="%F{blue}%n@%M%f %~
+# PROMPT="%F{red}%n@%M%f %~
+# $ "
+PROMPT="%n@%M %~
 $ "
 
 if [ -e "$HOME/.zshrc_local" ]; then
@@ -31,4 +33,4 @@ if which tmux >/dev/null 2>&1; then
     [[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
 fi
 
-alias repo='cd $(ghq list -p | peco)'
+alias gr='cd $(ghq root)/$(ghq list|peco --selection-prefix "*")'

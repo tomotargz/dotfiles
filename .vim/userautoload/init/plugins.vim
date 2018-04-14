@@ -32,6 +32,8 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'nightsense/simplifysimplify'
 Plug 'altercation/vim-colors-solarized'
+Plug 'AlxHnr/clear_colors'
+Plug 'noahfrederick/vim-hemisu'
 
 call plug#end()
 

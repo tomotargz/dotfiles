@@ -20,6 +20,6 @@ if has('termguicolors') && $TERM_PROGRAM ==# 'iTerm.app'
     set termguicolors
     colorscheme simplifysimplify-light
 else
-    colorscheme PaperColor
+    colorscheme clear_colors_light
 endif
 
