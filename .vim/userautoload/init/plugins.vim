@@ -15,25 +15,20 @@ Plug 'w0rp/ale'
 
 " language
 if v:version > 704 || (v:version == 704 && has('patch1689'))
-    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+    Plug 'fatih/vim-go'
 endif
 Plug 'justmao945/vim-clang'
 
 " completion
 if has('lua')
-    Plug 'Shougo/neocomplete'
+    " Plug 'Shougo/neocomplete'
 endif
 
 " colorschemes
 Plug 'w0ng/vim-hybrid'
 Plug 'romainl/Apprentice'
-Plug 'cocopon/iceberg.vim'
-Plug 'nanotech/jellybeans.vim'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'nightsense/simplifysimplify'
-Plug 'altercation/vim-colors-solarized'
 Plug 'AlxHnr/clear_colors'
-Plug 'noahfrederick/vim-hemisu'
 
 call plug#end()
 

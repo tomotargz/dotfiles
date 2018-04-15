@@ -1,8 +1,6 @@
 " 見た目関係-------------------------------------------------------------------
 " 行番号を表示
 set number
-" 現在以外の行番号を相対表示
-" set relativenumber
 " 現在の行をハイライト
 " set cursorline
 " 80列をハイライト
@@ -39,6 +37,7 @@ set matchtime=1
 
 
 " ステータスライン-------------------------------------------------------------
+" ファイル名を表示
 set statusline=%f
 " 変更チェック表示
 set statusline+=%m
@@ -51,9 +50,9 @@ set statusline+=%w
 " これ以降は右寄せ表示
 set statusline+=%=
 " file encoding
-set statusline+=%{&fileencoding}:
+set statusline+=[%{&fileencoding}]
 " 現在行数/全行数
-set statusline+=%l/%L
+set statusline+=[%l/%L]
 set laststatus=2
 
 " タブの振る舞い---------------------------------------------------------------
@@ -79,5 +78,5 @@ set updatetime=100
 " 未保存のバッファがあっても他のバッファの変更を許可---------------------------
 set hidden
 
-" OSのクリップボードと同期-----------------------------------------------------a
+" OSのクリップボードと同期-----------------------------------------------------
 set clipboard+=unnamed
