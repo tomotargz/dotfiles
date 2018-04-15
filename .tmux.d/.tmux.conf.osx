@@ -1,3 +1,2 @@
 # Clipboardを共有する
 set-option -g default-command "reattach-to-user-namespace -l $SHELL"
-# bind-key -t vi-copy Enter copy-pipe "cat > /dev/clipboard"

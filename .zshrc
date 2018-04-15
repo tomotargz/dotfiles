@@ -1,14 +1,14 @@
 # 補完--------------------------------------------------------------------------
-#
 autoload -U compinit
 compinit
 
-# プロンプト
-# PROMPT="%F{red}%n@%M%f %~
-# $ "
+# プロンプト--------------------------------------------------------------------
 PROMPT="%n@%M %~
 $ "
+# PROMPT="%n@%F{red}%M%f %~
+# $ "
 
+# ローカル設定------------------------------------------------------------------
 if [ -e "$HOME/.zshrc_local" ]; then
     source "$HOME/.zshrc_local"
 fi
@@ -29,8 +29,10 @@ setopt hist_ignore_dups
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
 
+# tmuxを起動する----------------------------------------------------------------
 if which tmux >/dev/null 2>&1; then
     [[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
 fi
 
+# エイリアス--------------------------------------------------------------------
 alias gr='cd $(ghq root)/$(ghq list|peco --selection-prefix "*")'
