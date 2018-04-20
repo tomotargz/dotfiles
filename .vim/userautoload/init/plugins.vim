@@ -1,13 +1,16 @@
 call plug#begin()
 
 Plug 'Shougo/vimproc.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tyru/caw.vim'
 Plug 'nazo/pt.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/goyo.vim'
 
 " lint
 Plug 'w0rp/ale'
