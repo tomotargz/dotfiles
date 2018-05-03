@@ -35,7 +35,6 @@ set scrolloff=5
 set showmatch
 set matchtime=1
 
-
 " ステータスライン-------------------------------------------------------------
 " ファイル名を表示
 set statusline=%f

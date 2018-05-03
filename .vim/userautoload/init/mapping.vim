@@ -1,8 +1,8 @@
 let mapleader="\<Space>"
 set backspace=indent,eol,start
-" inoremap ( ()<left>
-" inoremap { {}<left>
-" inoremap [ []<left>
+inoremap ( ()<left>
+inoremap { {}<left>
+inoremap [ []<left>
 inoremap <silent> jj <esc>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>h :noh<cr>

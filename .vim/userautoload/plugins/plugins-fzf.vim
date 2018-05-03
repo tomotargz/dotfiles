@@ -1,2 +1,2 @@
-nnoremap <Leader>b :Buffers<cr>
-nnoremap <Leader>p :GFiles<cr>
+nnoremap ; :Buffers<cr>
+nnoremap <C-p> :GFiles<cr>
