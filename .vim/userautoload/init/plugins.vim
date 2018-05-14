@@ -20,8 +20,12 @@ endif
 Plug 'justmao945/vim-clang'
 
 " completion
-if has('lua')
-    Plug 'Shougo/neocomplete'
+if has('python3')
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    let g:deoplete#enable_at_startup = 1
+    " need pip3 install nvim
 endif
 
 " colorschemes
