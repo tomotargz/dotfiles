@@ -9,6 +9,8 @@ Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
 Plug '/usr/local/opt/fzf'
+Plug 'kannokanno/previm'
+Plug 'tyru/open-browser.vim'
 
 " lint
 Plug 'w0rp/ale'
@@ -29,9 +31,7 @@ if has('python3')
 endif
 
 " colorschemes
-Plug 'w0ng/vim-hybrid'
-Plug 'romainl/Apprentice'
-Plug 'AlxHnr/clear_colors'
+Plug 'sonph/onehalf', {'rtp': '/vim'}
 
 call plug#end()
 

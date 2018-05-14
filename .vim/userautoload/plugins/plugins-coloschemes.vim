@@ -1,3 +1,4 @@
 syntax on
 set background=light
-colorscheme clear_colors_light
+set t_Co=256
+colorscheme onehalflight
