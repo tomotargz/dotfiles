@@ -1,38 +1,52 @@
-# 補完--------------------------------------------------------------------------
-autoload -U compinit
-compinit
+: "一般的な設定" && {
+    # 補完機能強化
+    autoload -U compinit && compinit
+    # コマンドの誤り検知
+    setopt correct
+    # ビープ音を鳴らさない
+    setopt nobeep
+}
 
-# プロンプト--------------------------------------------------------------------
-# PROMPT="%n@%M %~
-# $ "
+: "ヒストリ関連の設定" && {
+    # 履歴ファイルの保存先
+    HISTFILE=$HOME/.zsh_history
+    # メモリに保存される履歴の件数
+    HISTSIZE=10000
+    # 履歴ファイルに保存される履歴の件数
+    SAVEHIST=10000
+    # 重複を記録しない
+    setopt hist_ignore_dups
+    setopt hist_ignore_all_dups
+    # 異なるウインドウで履歴を共有する
+    setopt share_history
+    # historyコマンドは履歴に登録しない
+    setopt hist_no_store
+    # 余分な空白は詰めて記録
+    setopt hist_reduce_blanks
+}
+
+: "プロンプト" && {
 PROMPT="%n@%F{blue}%M%f %~
 $ "
+}
 
-# ローカル設定------------------------------------------------------------------
-if [ -e "$HOME/.zshrc_local" ]; then
-    source "$HOME/.zshrc_local"
-fi
+: "ローカル設定" && {
+    if [ -e "$HOME/.zshrc_local" ]; then
+        source "$HOME/.zshrc_local"
+    fi
+}
 
-# 履歴--------------------------------------------------------------------------
-# 履歴ファイルの保存先
-export HISTFILE=${HOME}/.zsh_history
+: "tmux起動" && {
+    if which tmux >/dev/null 2>&1; then
+        [[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
+    fi
+}
 
-# メモリに保存される履歴の件数
-export HISTSIZE=1000
+: "Alias" && {
+    alias his='print -z $(history -a -n -r 1| fzf --height=10 --reverse)'
+    function rp(){
+        repo=$(ghq list | fzf --height=10 --reverse)
+        [[ -n "$repo" ]] && cd $(ghq root)/$repo
+    }
+}
 
-# 履歴ファイルに保存される履歴の件数
-export SAVEHIST=100000
-
-# 重複を記録しない
-setopt hist_ignore_dups
-
-# 開始と終了を記録
-setopt EXTENDED_HISTORY
-
-# tmuxを起動する----------------------------------------------------------------
-if which tmux >/dev/null 2>&1; then
-    [[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
-fi
-
-# エイリアス--------------------------------------------------------------------
-alias gr='cd $(ghq root)/$(ghq list|peco --selection-prefix "*")'
