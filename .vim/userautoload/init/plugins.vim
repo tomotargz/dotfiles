@@ -32,7 +32,7 @@ endif
 
 " colorschemes
 Plug 'sonph/onehalf', {'rtp': '/vim'}
-
+Plug 'thomwiggers/vim-colors-solarized'
 call plug#end()
 
 filetype plugin indent on
