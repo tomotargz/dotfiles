@@ -11,6 +11,7 @@ Plug 'junegunn/fzf.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'kannokanno/previm'
 Plug 'tyru/open-browser.vim'
+Plug 'w0ng/vim-hybrid'
 
 " lint
 Plug 'w0rp/ale'

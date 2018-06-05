@@ -60,7 +60,13 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-
+" 開いたファイルが.mdと.txtの時は折り返す
+augroup basic_vimrc
+    autocmd!
+    autocmd BufNewFile,BufRead *.js setlocal shiftwidth=2
+    autocmd BufNewFile,BufRead *.js setlocal tabstop=2
+    autocmd BufNewFile,BufRead *.js setlocal softtabstop=2
+augroup END
 " 検索-------------------------------------------------------------------------
 set hlsearch
 set incsearch
