@@ -1,26 +1,20 @@
 " 見た目関係-------------------------------------------------------------------
 " 行番号を表示
 set number
-" 現在の行をハイライト
-" set cursorline
-" 80列をハイライト
-" set colorcolumn=80
 " 折り返し表示しない
 set nowrap
-" 開いたファイルが.mdと.txtの時は折り返す
-augroup basic_vimrc
-    autocmd!
-    autocmd BufNewFile,BufRead *.md,*.txt setlocal wrap breakindent
-augroup END
 " 画面に収まらない文字を@@で表示しない
 set display=lastline
 " 警告音をミュート
 set visualbell t_vb=
 " カーソル形状をモードごとに変える
-let &t_ti.="\e[1 q"
-let &t_SI.="\e[5 q"
-let &t_EI.="\e[1 q"
-let &t_te.="\e[0 q"
+if exists('$TMUX')
+  let &t_SI = "\ePtmux;\e\e[5 q\e\\"
+  let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+else
+  let &t_SI = "\e[5 q"
+  let &t_EI = "\e[2 q"
+endif
 " コマンド補完
 set wildmenu
 " 履歴数
@@ -60,13 +54,7 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-" 開いたファイルが.mdと.txtの時は折り返す
-augroup basic_vimrc
-    autocmd!
-    autocmd BufNewFile,BufRead *.js setlocal shiftwidth=2
-    autocmd BufNewFile,BufRead *.js setlocal tabstop=2
-    autocmd BufNewFile,BufRead *.js setlocal softtabstop=2
-augroup END
+
 " 検索-------------------------------------------------------------------------
 set hlsearch
 set incsearch
