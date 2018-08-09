@@ -26,8 +26,8 @@ set pumheight=10
 " 5行残してスクロールさせる
 set scrolloff=5
 " 対応する括弧を強調する
-set showmatch
-set matchtime=1
+" set showmatch
+" set matchtime=1
 
 " ステータスライン-------------------------------------------------------------
 " ファイル名を表示

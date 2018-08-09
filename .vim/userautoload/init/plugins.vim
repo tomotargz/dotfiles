@@ -12,10 +12,10 @@ Plug '/usr/local/opt/fzf'
 Plug 'kannokanno/previm'
 Plug 'tyru/open-browser.vim'
 Plug 'w0ng/vim-hybrid'
-
+Plug 'tomasr/molokai'
 " lint
 Plug 'w0rp/ale'
-
+Plug 'romainl/Apprentice'
 " language
 if v:version > 704 || (v:version == 704 && has('patch1689'))
     Plug 'fatih/vim-go'
@@ -28,7 +28,7 @@ if has('python3')
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
     let g:deoplete#enable_at_startup = 1
-    " need pip3 install nvim
+    " need pip3 install neovim
 endif
 
 " colorschemes

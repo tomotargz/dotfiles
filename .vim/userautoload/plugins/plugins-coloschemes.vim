@@ -8,3 +8,4 @@ let g:solarized_underline = 0
 let g:solarized_italic    = 0
 " colorscheme solarized
 colorscheme hybrid
+" colorscheme Apprentice
