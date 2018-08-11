@@ -26,7 +26,7 @@
 }
 
 : "プロンプト" && {
-PROMPT="%n@%F{blue}%M%f %~
+PROMPT="%n@%F{7}%M%f %~
 $ "
 }
 

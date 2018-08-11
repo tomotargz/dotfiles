@@ -1,39 +1,52 @@
 call plug#begin()
+" --------------------
+" colorschemes
+Plug 'tomotargz/kuro.vim'
 
-Plug 'Shougo/vimproc.vim'
+" filer
 Plug 'justinmk/vim-dirvish'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'tyru/caw.vim'
-Plug 'nazo/pt.vim'
-Plug 'glidenote/memolist.vim'
-Plug 'tpope/vim-fugitive'
+
+" fuzzy finder
 Plug 'junegunn/fzf.vim'
 Plug '/usr/local/opt/fzf'
-Plug 'kannokanno/previm'
+
+" grep
+Plug 'nazo/pt.vim'
+
+" memo
+Plug 'glidenote/memolist.vim'
+
+" markdown
 Plug 'tyru/open-browser.vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'tomasr/molokai'
+Plug 'kannokanno/previm'
+
+" git
+Plug 'tpope/vim-fugitive'
+
 " lint
 Plug 'w0rp/ale'
-Plug 'romainl/Apprentice'
+
 " language
 if v:version > 704 || (v:version == 704 && has('patch1689'))
     Plug 'fatih/vim-go'
 endif
-Plug 'justmao945/vim-clang'
 
 " completion
 if has('python3')
+    " need pip3 install neovim
     Plug 'Shougo/deoplete.nvim'
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'zchee/deoplete-go', { 'do': 'make'}
+    Plug 'dim13/gocode.vim'
+    Plug 'justmao945/vim-clang'
     let g:deoplete#enable_at_startup = 1
-    " need pip3 install neovim
 endif
 
-" colorschemes
-Plug 'sonph/onehalf', {'rtp': '/vim'}
-Plug 'thomwiggers/vim-colors-solarized'
-call plug#end()
+" edit text
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'tyru/caw.vim'
 
+" --------------------
+call plug#end()
 filetype plugin indent on
