@@ -30,6 +30,7 @@ Plug 'w0rp/ale'
 if v:version > 704 || (v:version == 704 && has('patch1689'))
     Plug 'fatih/vim-go'
 endif
+Plug 'rhysd/vim-clang-format'
 
 " completion
 if has('python3')
@@ -38,6 +39,7 @@ if has('python3')
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
     Plug 'zchee/deoplete-go', { 'do': 'make'}
+    Plug 'Shougo/deoplete-clangx'
     Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 endif
 

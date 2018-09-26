@@ -3,6 +3,7 @@ set nowrap
 set visualbell t_vb=
 set smartindent
 set number
+set pumheight=10
 
 " タブの振る舞い---------------------------------------------------------------
 set smarttab
