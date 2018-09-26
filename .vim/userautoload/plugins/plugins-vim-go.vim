@@ -1,8 +1,6 @@
 if v:version > 704 || (v:version == 704 && has('patch1689'))
     let g:go_fmt_command = "goimports"
     let g:go_template_autocreate = 0
-    " let g:go_auto_type_info = 1
-    " let g:go_auto_sameids = 1
 
     " run :GoBuild or :GoTestCompile based on the go file
     function! s:build_go_files()

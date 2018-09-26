@@ -1,49 +1,8 @@
 " 見た目関係-------------------------------------------------------------------
-" 行番号を表示
-set number
-" set ruler
-" 折り返し表示しない
 set nowrap
-" 画面に収まらない文字を@@で表示しない
-set display=lastline
-" 警告音をミュート
 set visualbell t_vb=
-" カーソル形状をモードごとに変える
-" if exists('$TMUX')
-"   let &t_SI = "\ePtmux;\e\e[5 q\e\\"
-"   let &t_EI = "\ePtmux;\e\e[2 q\e\\"
-" else
-"   let &t_SI = "\e[5 q"
-"   let &t_EI = "\e[2 q"
-" endif
-" コマンド補完
-set wildmenu
-" 履歴数
-set history=1000
-" インデント自動設定
 set smartindent
-" 補完候補表示上限
-set pumheight=10
-" 5行残してスクロールさせる
-set scrolloff=5
-" ステータスライン-------------------------------------------------------------
-" " ファイル名を表示
-" set statusline=%f
-" " 変更チェック表示
-" set statusline+=%m
-" " 読み込み専用かどうか表示
-" set statusline+=%r
-" " ヘルプページなら[HELP]と表示
-" set statusline+=%h
-" " プレビューウインドウなら[Prevew]と表示
-" set statusline+=%w
-" " これ以降は右寄せ表示
-" set statusline+=%=
-" " file encoding
-" set statusline+=%{&fileencoding}
-" " 現在行数/全行数
-" set statusline+=[%l/%L]
-" set laststatus=2
+set number
 
 " タブの振る舞い---------------------------------------------------------------
 set smarttab

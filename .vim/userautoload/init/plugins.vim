@@ -39,7 +39,6 @@ if has('python3')
     Plug 'roxma/vim-hug-neovim-rpc'
     Plug 'zchee/deoplete-go', { 'do': 'make'}
     Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-    Plug 'justmao945/vim-clang'
 endif
 
 " edit text
