@@ -1,15 +1,12 @@
 imap jj <Esc>
 nnoremap Y y$
-" set backspace=indent,eol,start
-inoremap ( ()<left>
-inoremap { {}<left>
-inoremap [ []<left>
 nnoremap <space>w :w<cr>
-nnoremap <leader>h :noh<cr>
+nnoremap <space>h :noh<cr>
 nnoremap j gj
 nnoremap k gk
 nnoremap <C-p> :action GotoFile<cr>
 nnoremap <space>g :action FindInPath<cr>
+nnoremap <space>f :action ReformatCode<cr>
 nnoremap gci :action CommentByLineComment<cr>
 nnoremap gcui :action CommentByLineComment<cr>
 vnoremap gci :action CommentByLineComment<cr>

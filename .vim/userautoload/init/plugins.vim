@@ -11,7 +11,7 @@ Plug 'junegunn/fzf.vim'
 Plug '/usr/local/opt/fzf'
 
 " grep
-Plug 'nazo/pt.vim'
+Plug 'jremmen/vim-ripgrep'
 
 " memo
 Plug 'glidenote/memolist.vim'
@@ -26,10 +26,12 @@ Plug 'tpope/vim-fugitive'
 " lint
 Plug 'w0rp/ale'
 
-" language
+" language-go
 if v:version > 704 || (v:version == 704 && has('patch1689'))
     Plug 'fatih/vim-go'
 endif
+
+" language-c/cpp
 Plug 'rhysd/vim-clang-format'
 
 " completion
@@ -39,6 +41,7 @@ if has('python3')
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
     Plug 'zchee/deoplete-go', { 'do': 'make'}
+    Plug 'zchee/deoplete-jedi'
     Plug 'Shougo/deoplete-clangx'
     Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 endif

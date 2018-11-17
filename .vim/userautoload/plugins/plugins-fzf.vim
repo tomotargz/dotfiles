@@ -1,2 +1,1 @@
-nnoremap ; :Buffers<cr>
-nnoremap <C-p> :GFiles<cr>
+nnoremap <C-p> :FZF<cr>
