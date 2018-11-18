@@ -2,6 +2,7 @@ call plug#begin()
 " --------------------
 " colorschemes
 Plug 'tomotargz/kuro.vim'
+Plug 'tomotargz/jellybeans.vim'
 
 " filer
 Plug 'justinmk/vim-dirvish'
@@ -49,6 +50,8 @@ endif
 " edit text
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tyru/caw.vim'
+
+
 
 " --------------------
 call plug#end()
