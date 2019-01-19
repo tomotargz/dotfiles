@@ -1,4 +1,4 @@
 syntax on
 set background=dark
 
-colorscheme hybrid
+colorscheme kuro

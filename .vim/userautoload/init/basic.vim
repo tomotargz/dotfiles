@@ -2,8 +2,13 @@
 set nowrap
 set visualbell t_vb=
 set smartindent
-set number
 set pumheight=10
+
+" 補完を初期選択しない
+set completeopt+=noselect
+" preview windowを表示しない
+set completeopt-=preview
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " タブの振る舞い---------------------------------------------------------------
 set smarttab
@@ -22,8 +27,6 @@ set ignorecase
 set nobackup
 set noundofile
 set noswapfile
-" swapfileに書き込むインターバル。vim-goのg:go_auto_type_info用
-set updatetime=100
 
 " 未保存のバッファがあっても他のバッファの変更を許可---------------------------
 set hidden
