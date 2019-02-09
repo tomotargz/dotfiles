@@ -4,6 +4,7 @@ call plug#begin()
 Plug 'tomotargz/jellybeans.vim'
 Plug 'tomotargz/kuro.vim'
 Plug 'tomotargz/silence.vim'
+Plug 'Lokaltog/vim-distinguished'
 
 " filer
 Plug 'justinmk/vim-dirvish'
