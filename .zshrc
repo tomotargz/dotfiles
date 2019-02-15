@@ -52,4 +52,11 @@ $ "
     }
 }
 
+: "direnv起動" && {
+    if which direnv >/dev/null 2>&1; then
+        eval "$(direnv hook zsh)"
+    fi
+}
+
+
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
