@@ -6,7 +6,7 @@
     # ビープ音を鳴らさない
     setopt nobeep
 }
-
+KEYTIMEOUT=1
 : "ヒストリ関連の設定" && {
     # 履歴ファイルの保存先
     HISTFILE=$HOME/.zsh_history
@@ -57,6 +57,5 @@ $ "
         eval "$(direnv hook zsh)"
     fi
 }
-
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'

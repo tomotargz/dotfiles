@@ -1,10 +1,8 @@
 call plug#begin()
-" --------------------
+
 " colorschemes
-Plug 'tomotargz/jellybeans.vim'
 Plug 'tomotargz/kuro.vim'
 Plug 'tomotargz/silence.vim'
-Plug 'Lokaltog/vim-distinguished'
 
 " filer
 Plug 'justinmk/vim-dirvish'
@@ -23,24 +21,20 @@ Plug 'glidenote/memolist.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'kannokanno/previm'
 
-" git
-Plug 'tpope/vim-fugitive'
-
-" lint
+" linter
 Plug 'w0rp/ale'
 
 " lsp
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 
-" language-c/cpp
+" c/cpp
 Plug 'rhysd/vim-clang-format'
 Plug 'justmao945/vim-clang'
 
-" edit text
+" editing
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tyru/caw.vim'
 
-" --------------------
 call plug#end()
 filetype plugin indent on
