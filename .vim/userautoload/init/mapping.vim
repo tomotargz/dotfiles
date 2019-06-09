@@ -7,6 +7,7 @@ nnoremap <leader>e :ll<cr>zz
 nnoremap <leader>] :LspDefinition<cr>
 nnoremap <leader>f :LspDocumentFormat<cr>
 nnoremap j gj
+inoremap <silent> jj <esc>
 nnoremap k gk
 nnoremap Y y$
 nnoremap <C-]> g<C-]>
