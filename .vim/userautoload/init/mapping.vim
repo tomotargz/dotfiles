@@ -12,9 +12,16 @@ nnoremap k gk
 nnoremap Y y$
 nnoremap <C-]> g<C-]>
 nnoremap <C-p> :Files<cr>
+inoremap <silent> jj <esc>
 
 augroup GoCommands
     autocmd!
     autocmd FileType go nnoremap <buffer> <C-]> :LspDefinition<cr>
     autocmd FileType go nnoremap <buffer> <leader>f :LspDocumentFormat<cr>
+augroup END
+
+augroup RustCommands
+    autocmd!
+    autocmd FileType rust nnoremap <buffer> <C-]> :LspDefinition<cr>
+    autocmd FileType rust nnoremap <buffer> <leader>f :LspDocumentFormat<cr>
 augroup END

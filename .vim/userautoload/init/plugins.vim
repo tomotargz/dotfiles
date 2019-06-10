@@ -30,11 +30,22 @@ Plug 'prabirshrestha/vim-lsp'
 
 " c/cpp
 Plug 'rhysd/vim-clang-format'
-Plug 'justmao945/vim-clang'
+" Plug 'justmao945/vim-clang'
 
 " editing
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tyru/caw.vim'
+
+" completion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/deoplete-clangx'
+let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 filetype plugin indent on
