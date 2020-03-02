@@ -14,14 +14,10 @@ else
 endif
 
 " 補完-------------------------------------------------------------------------
-" preview windowを表示しない
-set completeopt-=preview
 " 補完候補を初期選択しない
 set completeopt+=noselect
 " 補完候補が一つでもポップアップを表示する
 set completeopt+=menuone
-" 補完が終わったらpreview windowを閉じる
-" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " タブの振る舞い---------------------------------------------------------------
 set smarttab
@@ -50,6 +46,9 @@ set clipboard+=unnamed
 " ESCの反応速度を上げる--------------------------------------------------------
 set ttimeoutlen=10
 
+" Backspace
+set backspace=indent,eol,start
+
 " 拡張子別の設定---------------------------------------------------------------
 augroup WrapMarkdown
     autocmd!
@@ -58,5 +57,9 @@ augroup END
 
 augroup YamlIndent
     autocmd!
-    autocmd BufRead,BufNewFile *.yml *.yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
+
+augroup MakefileTab
+    au FileType make setlocal noexpandtab tabstop=4
 augroup END

@@ -4,6 +4,10 @@ call plug#begin()
 Plug 'tomotargz/kuro.vim'
 Plug 'tomotargz/silence.vim'
 
+" editing
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'tyru/caw.vim'
+
 " filer
 Plug 'justinmk/vim-dirvish'
 
@@ -17,35 +21,20 @@ Plug 'jremmen/vim-ripgrep'
 " memo
 Plug 'glidenote/memolist.vim'
 
-" markdown
-Plug 'tyru/open-browser.vim'
-Plug 'kannokanno/previm'
-
-" linter
-Plug 'w0rp/ale'
-
 " lsp
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-
-" c/cpp
-Plug 'rhysd/vim-clang-format'
-" Plug 'justmao945/vim-clang'
-
-" editing
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'tyru/caw.vim'
+Plug 'mattn/vim-lsp-settings'
 
 " completion
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'Shougo/deoplete-clangx'
-let g:deoplete#enable_at_startup = 1
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+
+" markdown preview
+Plug 'tyru/open-browser.vim'
+Plug 'kannokanno/previm'
 
 call plug#end()
 filetype plugin indent on
