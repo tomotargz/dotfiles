@@ -33,8 +33,8 @@ Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
 
 " markdown preview
-Plug 'tyru/open-browser.vim'
-Plug 'kannokanno/previm'
+Plug 'tyru/open-browser.vim', {'for': 'markdown'}
+Plug 'kannokanno/previm', {'for': 'markdown'}
 
 call plug#end()
 filetype plugin indent on

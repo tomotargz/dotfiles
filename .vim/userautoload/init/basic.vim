@@ -3,6 +3,7 @@ set nowrap
 set visualbell t_vb=
 set smartindent
 set laststatus=2
+set colorcolumn=80
 
 " カーソル形状をモードごとに変える---------------------------------------------
 if exists('$TMUX')
