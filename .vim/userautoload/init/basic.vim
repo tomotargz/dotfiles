@@ -64,3 +64,6 @@ augroup END
 augroup MakefileTab
     au FileType make setlocal noexpandtab tabstop=4
 augroup END
+
+" termdebug
+packadd termdebug

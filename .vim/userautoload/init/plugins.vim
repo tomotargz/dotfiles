@@ -12,8 +12,8 @@ Plug 'tyru/caw.vim'
 Plug 'justinmk/vim-dirvish'
 
 " fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug '/usr/local/opt/fzf'
 
 " grep
 Plug 'jremmen/vim-ripgrep'
