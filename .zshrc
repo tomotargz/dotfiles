@@ -5,6 +5,8 @@
     setopt correct
     # ビープ音を鳴らさない
     setopt nobeep
+    # emacs キーバインド
+    bindkey -e
 }
 KEYTIMEOUT=1
 : "ヒストリ関連の設定" && {
@@ -60,3 +62,4 @@ $ "
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export  FZF_DEFAULT_OPTS='--color bw'
+export LC_ALL=en_US.UTF-8
