@@ -3,6 +3,7 @@ call plug#begin()
 " colorschemes
 Plug 'tomotargz/kuro.vim'
 Plug 'tomotargz/silence.vim'
+Plug 'w0ng/vim-hybrid'
 
 " editing
 Plug 'bronson/vim-trailing-whitespace'
