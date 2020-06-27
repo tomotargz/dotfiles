@@ -23,7 +23,6 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'glidenote/memolist.vim'
 
 " lsp
-Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 
