@@ -3,6 +3,7 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <C-]> <plug>(lsp-definition)
   nmap <buffer> <leader>f <plug>(lsp-document-format)
   nmap <buffer> <leader>e <plug>(lsp-next-diagnostic)
+  nmap <buffer> <leader>d <plug>(lsp-document-diagnostics)
   let b:ale_enabled=0
 endfunction
 

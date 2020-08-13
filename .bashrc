@@ -10,3 +10,4 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_DEFAULT_OPTS='--color bw'
 export TERM=xterm-256color
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+# export LC_ALL=en_US.UTF-8
