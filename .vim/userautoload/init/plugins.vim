@@ -36,8 +36,8 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'tyru/open-browser.vim', {'for': 'markdown'}
 Plug 'kannokanno/previm', {'for': 'markdown'}
 Plug 'rcmdnk/vim-markdown'
-Plug 'godlygeek/tabular'
 
+" linter
 Plug 'dense-analysis/ale'
 
 call plug#end()

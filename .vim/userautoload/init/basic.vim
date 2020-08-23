@@ -1,11 +1,12 @@
-" 見た目関係-------------------------------------------------------------------
+" View -------------------------------------------------------------------------
+
 set nowrap
 set visualbell t_vb=
 set smartindent
 set laststatus=2
 set colorcolumn=80
 
-" カーソル形状をモードごとに変える---------------------------------------------
+" Change cursor shape for each mode
 if exists('$TMUX')
   let &t_SI = "\ePtmux;\e\e[5 q\e\\"
   let &t_EI = "\ePtmux;\e\e[2 q\e\\"
@@ -14,43 +15,37 @@ else
   let &t_EI = "\e[2 q"
 endif
 
-" 補完-------------------------------------------------------------------------
-" 補完候補を初期選択しない
+" Completion -------------------------------------------------------------------
+
+" Not select any candidate initially
 set completeopt+=noselect
-" 補完候補が一つでもポップアップを表示する
+
+" Show popup regardless the number of candidates
 set completeopt+=menuone
 
-" タブの振る舞い---------------------------------------------------------------
+" Tab attributes ---------------------------------------------------------------
+
 set smarttab
 set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
-" 検索-------------------------------------------------------------------------
+" Search -----------------------------------------------------------------------
+
 set hlsearch
 set incsearch
 set smartcase
 set ignorecase
 
-" 一時ファイル-----------------------------------------------------------------
+" Temporary files --------------------------------------------------------------
+
 set nobackup
 set noundofile
 set noswapfile
 
-" 未保存のバッファがあっても他のバッファの変更を許可---------------------------
-set hidden
+" Configuration for each file type ---------------------------------------------
 
-" OSのクリップボードと同期-----------------------------------------------------
-set clipboard+=unnamed
-
-" ESCの反応速度を上げる--------------------------------------------------------
-set ttimeoutlen=10
-
-" Backspace
-set backspace=indent,eol,start
-
-" 拡張子別の設定---------------------------------------------------------------
 augroup WrapMarkdown
     autocmd!
     autocmd BufRead,BufNewFile *.md setlocal wrap
@@ -65,7 +60,19 @@ augroup MakefileTab
     au FileType make setlocal noexpandtab tabstop=4
 augroup END
 
-" termdebug
-packadd termdebug
+" Other ------------------------------------------------------------------------
 
-let g:vim_markdown_folding_disabled = 1
+" Allow a buffer be changed even if there is any other unsaved buffer
+set hidden
+
+" Share clipboard with OS
+set clipboard+=unnamed
+
+" Improve the response of escape key
+set ttimeoutlen=10
+
+" Backspace
+set backspace=indent,eol,start
+
+" Enable termdebug
+packadd termdebug
