@@ -6,4 +6,3 @@ nnoremap <C-p> :Files<cr>
 nnoremap j gj
 nnoremap k gk
 nnoremap Y y$
-inoremap <silent> jj <esc>

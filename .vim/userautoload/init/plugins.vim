@@ -3,7 +3,6 @@ call plug#begin()
 " colorschemes
 Plug 'tomotargz/kuro.vim'
 Plug 'tomotargz/silence.vim'
-Plug 'w0ng/vim-hybrid'
 
 " editing
 Plug 'bronson/vim-trailing-whitespace'
@@ -29,7 +28,6 @@ Plug 'mattn/vim-lsp-settings'
 " completion
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
 
 " markdown preview

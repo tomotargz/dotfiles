@@ -30,7 +30,8 @@
 : "prompt" && {
     # {user}@{hostname} {path}
     # $
-    PROMPT="%n@%m %~"$'\n'"$ "
+    # PROMPT="%n@%m %~"$'\n'"$ "
+    PROMPT="; "
 }
 
 : "Local configuration" && {

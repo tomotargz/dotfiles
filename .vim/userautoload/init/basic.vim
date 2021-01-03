@@ -7,17 +7,12 @@ set laststatus=2
 set colorcolumn=80
 
 " Change cursor shape for each mode
-if exists('$TMUX')
-  let &t_SI = "\ePtmux;\e\e[5 q\e\\"
-  let &t_EI = "\ePtmux;\e\e[2 q\e\\"
-else
-  let &t_SI = "\e[5 q"
-  let &t_EI = "\e[2 q"
-endif
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[2 q"
 
 " Completion -------------------------------------------------------------------
 
-" Not select any candidate initially
+" Select no candidate initially
 set completeopt+=noselect
 
 " Show popup regardless the number of candidates
