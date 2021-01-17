@@ -7,4 +7,4 @@ do
     [[ ${f} = ".gitignore" ]] && continue
     ln -snfv ${SCRIPT_DIR}/${f} ${HOME}/${f}
 done
-echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
+echo Deploy dotfiles complete!
