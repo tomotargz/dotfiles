@@ -1,1 +1,1 @@
-nnoremap <leader>p :FZF<cr>
+nnoremap <C-p> :Files<cr>
