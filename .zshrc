@@ -53,15 +53,13 @@
 }
 
 : "Alias" && {
-    # "his"
-    # Incrementally search history
-    alias his='print -z $(history -a -n -r 1| fzf --height=10 --reverse)'
+    # "his" incrementally searches the history
+    alias his='print -z $(history -a -n -r 1| fzf --height=10 --reverse --no-sort)'
 
-    # "rp"
-    # Incrementally search repositories managed by ghq incrementally
+    # "rp" incrementally searches the repositories managed by ghq
     function rp(){
         repo=$(ghq list | fzf --height=10 --reverse)
-        [[ -n "$repo" ]] && cd $(ghq root)/$repo
+        [[ -n "$repo" ]] && cd $(ghq root)/$repo && pwd
     }
 }
 
