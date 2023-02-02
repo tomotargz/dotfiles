@@ -51,9 +51,20 @@ augroup YamlIndent
     autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
+augroup CppIndent
+    autocmd!
+    autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
+
+augroup CIndent
+    autocmd!
+    autocmd FileType c setlocal shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
+
 augroup MakefileTab
     au FileType make setlocal noexpandtab tabstop=4
 augroup END
+
 
 " Other ------------------------------------------------------------------------
 

@@ -5,6 +5,8 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <leader>e <plug>(lsp-next-diagnostic)
   nmap <buffer> <leader>d <plug>(lsp-document-diagnostics)
   let b:ale_enabled=0
+  setlocal completeopt=menu
+  setlocal omnifunc=lsp#complete
 endfunction
 
 augroup lsp_install
@@ -15,3 +17,12 @@ augroup END
 let g:lsp_diagnostics_echo_delay = 100
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_document_highlight_enabled = 0
+let g:lsp_document_code_action_signs_enabled = 0
+let g:lsp_diagnostics_virtual_text_enabled = 0
+let g:lsp_log_file = ''
+let g:lsp_settings = {
+      \ 'efm-langserver': {
+      \   'disabled': 0,
+      \   'allowlist': ['markdown'],
+      \  }
+      \ }
