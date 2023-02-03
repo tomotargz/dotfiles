@@ -4,14 +4,23 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <leader>f <plug>(lsp-document-format)
   nmap <buffer> <leader>e <plug>(lsp-next-diagnostic)
   nmap <buffer> <leader>d <plug>(lsp-document-diagnostics)
-  let b:ale_enabled=0
+  setlocal b:ale_enabled=0
   setlocal completeopt=menu
   setlocal omnifunc=lsp#complete
 endfunction
 
 augroup lsp_install
-  au!
+  autocmd!
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+function! s:on_diagnostics_updated() abort
+  " I want to update the diagnostics window
+endfunction
+
+augroup diagnostics_updated
+  autocmd!
+  autocmd User lsp_diagnostics_updated call s:on_diagnostics_updated()
 augroup END
 
 let g:lsp_diagnostics_echo_delay = 100

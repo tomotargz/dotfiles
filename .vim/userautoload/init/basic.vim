@@ -41,27 +41,28 @@ set noswapfile
 
 " Configuration for each file type ---------------------------------------------
 
-augroup WrapMarkdown
+augroup markdown
     autocmd!
-    autocmd BufRead,BufNewFile *.md setlocal wrap
+    autocmd BufNewFile,BufRead *.md :set filetype=markdown
+    autocmd FileType markdown setlocal wrap
 augroup END
 
-augroup YamlIndent
+augroup yaml
     autocmd!
     autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
-augroup CppIndent
+augroup cpp
     autocmd!
     autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
-augroup CIndent
+augroup c
     autocmd!
     autocmd FileType c setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
-augroup MakefileTab
+augroup makefile
     au FileType make setlocal noexpandtab tabstop=4
 augroup END
 
