@@ -10,14 +10,6 @@ set colorcolumn=80
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
 
-" Completion -------------------------------------------------------------------
-
-" Select no candidate initially
-set completeopt+=noselect
-
-" Show popup regardless the number of candidates
-set completeopt+=menuone
-
 " Tab attributes ---------------------------------------------------------------
 
 set smarttab
@@ -47,22 +39,12 @@ augroup markdown
     autocmd FileType markdown setlocal wrap
 augroup END
 
-augroup yaml
+augroup twoSpace
     autocmd!
-    autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd FileType c,cpp,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
-augroup cpp
-    autocmd!
-    autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
-augroup END
-
-augroup c
-    autocmd!
-    autocmd FileType c setlocal shiftwidth=2 tabstop=2 softtabstop=2
-augroup END
-
-augroup makefile
+augroup useTab
     au FileType make setlocal noexpandtab tabstop=4
 augroup END
 

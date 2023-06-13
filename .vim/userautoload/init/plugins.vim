@@ -12,10 +12,8 @@ Plug 'tyru/caw.vim'
 Plug 'justinmk/vim-dirvish'
 
 " fuzzy finder
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mattn/ctrlp-matchfuzzy'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " grep
 Plug 'jremmen/vim-ripgrep'
@@ -34,7 +32,7 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 
 " markdown preview
 Plug 'tyru/open-browser.vim', {'for': 'markdown'}
-Plug 'kannokanno/previm', {'for': 'markdown'}
+Plug 'previm/previm', {'for': 'markdown'}
 Plug 'rcmdnk/vim-markdown'
 
 call plug#end()

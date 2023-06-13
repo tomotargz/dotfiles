@@ -43,7 +43,7 @@
 : "Auto run" && {
     # tmux
     if which tmux reattach-to-user-namespace >/dev/null 2>&1; then
-        [[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux || true
+        [[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
     fi
 
     # direnv
