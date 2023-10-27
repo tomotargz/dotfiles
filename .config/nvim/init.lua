@@ -1,3 +1,36 @@
+-- Plugin
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+    'justinmk/vim-dirvish',
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+    'tomotargz/kuro.vim',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
+    {
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+    },
+    'glidenote/memolist.vim',
+    'terrortylor/nvim-comment',
+})
+
 -- View
 vim.opt.wrap = false
 vim.opt.smartindent = true
@@ -36,7 +69,7 @@ vim.opt.fileencoding = 'utf-8'
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>w', ':w<Return>')
 vim.keymap.set('n', '<leader>h', ':noh<Return>')
-vim.keymap.set('n', '<leader>t', ':vert term<Return>')
+vim.keymap.set('n', '<leader>t', ':vsplit|terminal<Return>')
 vim.keymap.set('n', '<leader>v', ':e $MYVIMRC<Return>')
 vim.keymap.set('n', '<leader>vv', ':source $MYVIMRC<Return>')
 vim.keymap.set('n', 'j', 'gj')
@@ -48,46 +81,7 @@ vim.keymap.set('t', '<C-w>j', '<C-\\><C-n><C-w>j')
 vim.keymap.set('t', '<C-w>k', '<C-\\><C-n><C-w>k')
 vim.keymap.set('t', '<C-w>l', '<C-\\><C-n><C-w>l')
 
-
--- Terminal
--- !ToDo: Enter insert mode when move to terminal buffer
-
--- Plugin
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-    'justinmk/vim-dirvish',
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
-    'neovim/nvim-lspconfig',
-    'tomotargz/kuro.vim',
-    'huyvohcmc/atlas.vim',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/nvim-cmp',
-    't184256/vim-boring',
-    'stefanvanburen/rams.vim',
-    {
-        'nvim-telescope/telescope.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-    },
-    'glidenote/memolist.vim',
-    'terrortylor/nvim-comment',
-})
-
+-- mason
 require('mason').setup {
   ui = {
     check_outdated_packages_on_open = false,
@@ -101,7 +95,7 @@ require('mason-lspconfig').setup_handlers {
   end,
 }
 
--- Set up nvim-cmp.
+-- nvim-cmp.
 local cmp = require'cmp'
 
 cmp.setup({
@@ -166,7 +160,7 @@ cmp.setup.cmdline(':', {
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
+require('lspconfig')['clangd'].setup {
   capabilities = capabilities
 }
 
@@ -180,15 +174,15 @@ vim.cmd[[colorscheme kuro]]
 
 require('nvim_comment').setup()
 
--- vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>')
+vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>')
--- vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 vim.keymap.set('n', '<C-]>', '<cmd>lua vim.lsp.buf.definition()<CR>')
--- vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
--- vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
--- vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
--- vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
--- vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
--- vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
--- vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
--- vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
+vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
