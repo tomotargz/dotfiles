@@ -58,7 +58,12 @@ require("lazy").setup({
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
     'glidenote/memolist.vim',
-    'terrortylor/nvim-comment',
+    {
+        'terrortylor/nvim-comment',
+        config = function()
+            require('nvim_comment').setup()
+        end
+    }
 })
 
 -- View
@@ -198,4 +203,3 @@ require('lspconfig')['clangd'].setup {
   capabilities = capabilities
 }
 
-require('nvim_comment').setup()
