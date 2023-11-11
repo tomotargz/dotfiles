@@ -14,7 +14,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     'justinmk/vim-dirvish',
-    'williamboman/mason.nvim',
+    {
+        'williamboman/mason.nvim',
+        config = function()
+            require('mason').setup()
+        end
+    },
     'williamboman/mason-lspconfig.nvim',
     {
         'neovim/nvim-lspconfig',
@@ -37,7 +42,7 @@ require("lazy").setup({
                 vim.lsp.buf.format { async = true }
             end, opts)
         end
-},
+    },
     {
         'tomotargz/kuro.vim',
 	    config = function()
@@ -119,14 +124,6 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
-
--- mason
-require('mason').setup {
-  ui = {
-    check_outdated_packages_on_open = false,
-    border = 'single',
-  },
-}
 
 require('mason-lspconfig').setup_handlers {
   function(server_name)
