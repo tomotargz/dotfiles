@@ -25,6 +25,10 @@ require("lazy").setup({
     'hrsh7th/nvim-cmp',
     {
         'nvim-telescope/telescope.nvim',
+        keys = {
+            {'<C-p>', '<cmd>Telescope find_files<cr>', mode = 'n'},
+            {'<C-g>', '<cmd>Telescope live_grep<cr>', mode = 'n'},
+        },
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
     'glidenote/memolist.vim',
@@ -163,11 +167,6 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig')['clangd'].setup {
   capabilities = capabilities
 }
-
--- Fuzzy Finder
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
 
 -- Colorscheme
 vim.cmd[[colorscheme kuro]]
