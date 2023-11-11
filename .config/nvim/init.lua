@@ -17,7 +17,12 @@ require("lazy").setup({
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
-    'tomotargz/kuro.vim',
+    {
+        'tomotargz/kuro.vim',
+	    config = function()
+            vim.cmd.colorscheme 'kuro'
+        end,
+    },
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
@@ -167,9 +172,6 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig')['clangd'].setup {
   capabilities = capabilities
 }
-
--- Colorscheme
-vim.cmd[[colorscheme kuro]]
 
 require('nvim_comment').setup()
 
