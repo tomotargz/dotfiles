@@ -14,6 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     'justinmk/vim-dirvish',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
     {
         'williamboman/mason.nvim',
         config = function()
@@ -24,6 +29,17 @@ require("lazy").setup({
     {
         'neovim/nvim-lspconfig',
         config = function()
+            local lspconfig = require('lspconfig')
+            local cmp_nvim_lsp = require('cmp_nvim_lsp')
+            local capavilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+            require('mason-lspconfig').setup_handlers {
+                function(server_name)
+                    lspconfig[server_name].setup {
+                        capabilities = capabilities,
+                    }
+                end,
+            }
+
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -49,11 +65,6 @@ require("lazy").setup({
             vim.cmd.colorscheme 'kuro'
         end,
     },
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/nvim-cmp',
     {
         'nvim-telescope/telescope.nvim',
         keys = {
@@ -125,11 +136,6 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
-require('mason-lspconfig').setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {}
-  end,
-}
 
 -- nvim-cmp.
 local cmp = require'cmp'
