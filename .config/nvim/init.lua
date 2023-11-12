@@ -78,7 +78,7 @@ require("lazy").setup({
         config = function()
             local cmp = require('cmp')
             cmp.setup {
-                source = cmp.config.sources({
+                sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'nvim_lsp_signature_help' },
                     { name = 'buffer' },
