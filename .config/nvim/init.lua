@@ -164,5 +164,9 @@ require("lazy").setup({
         config = function()
             require('nvim_comment').setup()
         end
-    }
+    },
+    {
+        'previm/previm',
+        dependencies = { 'tyru/open-browser.vim' },
+    },
 })
