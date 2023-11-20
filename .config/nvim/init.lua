@@ -1,5 +1,5 @@
 -- View
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.smartindent = true
 vim.opt.laststatus = 2
 vim.opt.colorcolumn = '80'
