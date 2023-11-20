@@ -84,7 +84,14 @@ require("lazy").setup({
                     { name = 'buffer' },
                     { name = 'path' },
                     { name = 'cmdline' },
-                })
+                }),
+                mapping = {
+                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                    ['<Up>'] = cmp.mapping.select_prev_item(),
+                    ['<C-p>'] = cmp.mapping.select_prev_item(),
+                    ['<Down>'] = cmp.mapping.select_next_item(),
+                    ['<C-n>'] = cmp.mapping.select_next_item(),
+                },
             }
 
             cmp.setup.cmdline('/', {
