@@ -30,8 +30,9 @@
 : "prompt" && {
     # {user}@{hostname} {path}
     # $
+    PROMPT="%~"$'\n'"$ "
     # PROMPT="%n@%m %~"$'\n'"$ "
-    PROMPT="; "
+    # PROMPT="; "
 }
 
 : "Local configuration" && {
@@ -54,12 +55,12 @@
 
 : "Alias" && {
     # "his" incrementally searches the history
-    alias his='print -z $(history -a -n -r 1| fzf --height=10 --reverse --no-sort)'
+    alias his='print -z $(history -a -n -r 1 | fzf --exact --reverse --no-sort)'
 
     # "rp" incrementally searches the repositories managed by ghq
     function rp(){
-        repo=$(ghq list | fzf --height=10 --reverse)
-        [[ -n "$repo" ]] && cd $(ghq root)/$repo && pwd
+        repo=$(ghq list | fzf --reverse)
+        [[ -n "$repo" ]] && cd $(ghq root)/$repo
     }
 }
 
