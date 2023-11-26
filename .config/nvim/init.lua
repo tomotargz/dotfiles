@@ -41,7 +41,7 @@ vim.keymap.set('n', '<leader>vv', ':source $MYVIMRC<Return>')
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('n', 'Y', 'y$')
-vim.keymap.set('i', 'jj', '<Esc>')
+-- vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -161,12 +161,7 @@ require("lazy").setup({
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
     'glidenote/memolist.vim',
-    {
-        'terrortylor/nvim-comment',
-        config = function()
-            require('nvim_comment').setup()
-        end
-    },
+    'tyru/caw.vim',
     {
         'previm/previm',
         dependencies = { 'tyru/open-browser.vim' },
