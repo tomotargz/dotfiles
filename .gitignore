@@ -3,3 +3,5 @@
 .vim/.netrwhist
 .vim/autoload/plug.vim.old
 .config/nvim/lazy-lock.json
+.config/mise
+.config/git/ignore
