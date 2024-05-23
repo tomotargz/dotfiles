@@ -28,8 +28,8 @@
 }
 
 : "prompt" && {
-    PROMPT=$'\n'"%~"$'\n'"$ "
-    # PROMPT="%~"$'\n'"$ "
+    # PROMPT=$'\n'"%~"$'\n'"$ "
+    PROMPT="%~"$'\n'"$ "
     # PROMPT="; "
 }
 

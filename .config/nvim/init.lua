@@ -46,7 +46,6 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
-
 -- Plugin
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -84,8 +83,10 @@ require("lazy").setup({
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
                     ['<Up>'] = cmp.mapping.select_prev_item(),
                     ['<C-p>'] = cmp.mapping.select_prev_item(),
+                    ['<C-k>'] = cmp.mapping.select_prev_item(),
                     ['<Down>'] = cmp.mapping.select_next_item(),
                     ['<C-n>'] = cmp.mapping.select_next_item(),
+                    ['<C-j>'] = cmp.mapping.select_next_item(),
                 },
             }
 
@@ -148,7 +149,7 @@ require("lazy").setup({
     },
     {
         'tomotargz/kuro.vim',
-	    config = function()
+     config = function()
             vim.cmd.colorscheme 'kuro'
         end,
     },
