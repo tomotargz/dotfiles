@@ -49,24 +49,24 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 -- Plugin
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    'justinmk/vim-dirvish',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-nvim-lsp-signature-help',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
+    {'justinmk/vim-dirvish'},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/cmp-nvim-lsp-signature-help'},
+    {'hrsh7th/cmp-buffer'},
+    {'hrsh7th/cmp-path'},
+    {'hrsh7th/cmp-cmdline'},
     {
         'hrsh7th/nvim-cmp',
         config = function()
@@ -81,11 +81,7 @@ require("lazy").setup({
                 }),
                 mapping = {
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                    ['<Up>'] = cmp.mapping.select_prev_item(),
-                    ['<C-p>'] = cmp.mapping.select_prev_item(),
                     ['<C-k>'] = cmp.mapping.select_prev_item(),
-                    ['<Down>'] = cmp.mapping.select_next_item(),
-                    ['<C-n>'] = cmp.mapping.select_next_item(),
                     ['<C-j>'] = cmp.mapping.select_next_item(),
                 },
             }
@@ -107,49 +103,41 @@ require("lazy").setup({
             })
         end
     },
+    {'williamboman/mason.nvim'},
+    {'williamboman/mason-lspconfig.nvim'},
+    {'neovim/nvim-lspconfig'},
+    {'L3MON4D3/LuaSnip'},
     {
-        'williamboman/mason.nvim',
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
         config = function()
-            require('mason').setup()
-        end
-    },
-    'williamboman/mason-lspconfig.nvim',
-    {
-        'neovim/nvim-lspconfig',
-        config = function()
-            local lspconfig = require('lspconfig')
-            local cmp_nvim_lsp = require('cmp_nvim_lsp')
-            local capavilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
-            require('mason-lspconfig').setup_handlers {
-                function(server_name)
-                    lspconfig[server_name].setup {
-                        capabilities = capabilities,
-                    }
-                end,
-            }
+            local lsp_zero = require('lsp-zero')
 
-            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-            vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-            vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-            vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-            vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-            vim.keymap.set('n', '<leader>wl', function()
-                print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-            end, opts)
-            vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-            vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-            vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-            vim.keymap.set('n', '<leader>f', function()
-                vim.lsp.buf.format { async = true }
-            end, opts)
+            lsp_zero.on_attach(function(client, bufnr)
+                -- see :help lsp-zero-keybindings
+                -- to learn the available actions
+                lsp_zero.default_keymaps({buffer = bufnr})
+                vim.keymap.set('n', '<leader>f', function()
+                    vim.lsp.buf.format { async = true }
+                end, opts)
+            end)
+
+            -- to learn how to use mason.nvim
+            -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
+            require('mason').setup({})
+            require('mason-lspconfig').setup({
+                ensure_installed = {},
+                handlers = {
+                    function(server_name)
+                        require('lspconfig')[server_name].setup({})
+                    end,
+                },
+            })
         end
     },
     {
         'tomotargz/kuro.vim',
-     config = function()
+        config = function()
             vim.cmd.colorscheme 'kuro'
         end,
     },
@@ -161,10 +149,16 @@ require("lazy").setup({
         },
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
-    'glidenote/memolist.vim',
-    'tyru/caw.vim',
+    {'glidenote/memolist.vim'},
+    {'numToStr/Comment.nvim'},
     {
         'previm/previm',
         dependencies = { 'tyru/open-browser.vim' },
+    },
+    {
+        "j-hui/fidget.nvim",
+        opts = {
+            -- options
+        },
     },
 })
