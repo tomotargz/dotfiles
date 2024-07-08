@@ -4,6 +4,7 @@ vim.opt.smartindent = true
 vim.opt.laststatus = 2
 vim.opt.colorcolumn = '80'
 vim.opt.number = false
+vim.opt.scrolloff = 5
 
 -- Tab
 vim.opt.smarttab = true
@@ -61,12 +62,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    {'justinmk/vim-dirvish'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/cmp-nvim-lsp-signature-help'},
-    {'hrsh7th/cmp-buffer'},
-    {'hrsh7th/cmp-path'},
-    {'hrsh7th/cmp-cmdline'},
+    { "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate" },
+    { 'justinmk/vim-dirvish' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-nvim-lsp-signature-help' },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-path' },
+    { 'hrsh7th/cmp-cmdline' },
     {
         'hrsh7th/nvim-cmp',
         config = function()
@@ -103,20 +105,20 @@ require("lazy").setup({
             })
         end
     },
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
-    {'neovim/nvim-lspconfig'},
-    {'L3MON4D3/LuaSnip'},
+    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason-lspconfig.nvim' },
+    { 'neovim/nvim-lspconfig' },
+    { 'L3MON4D3/LuaSnip' },
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         config = function()
             local lsp_zero = require('lsp-zero')
-
+            lsp_zero.extend_lspconfig()
             lsp_zero.on_attach(function(client, bufnr)
                 -- see :help lsp-zero-keybindings
                 -- to learn the available actions
-                lsp_zero.default_keymaps({buffer = bufnr})
+                lsp_zero.default_keymaps({ buffer = bufnr })
                 vim.keymap.set('n', '<leader>f', function()
                     vim.lsp.buf.format { async = true }
                 end, opts)
@@ -144,13 +146,13 @@ require("lazy").setup({
     {
         'nvim-telescope/telescope.nvim',
         keys = {
-            {'<C-p>', '<cmd>Telescope find_files<cr>', mode = 'n'},
-            {'<C-g>', '<cmd>Telescope live_grep<cr>', mode = 'n'},
+            { '<C-p>', '<cmd>Telescope find_files<cr>', mode = 'n' },
+            { '<C-g>', '<cmd>Telescope live_grep<cr>',  mode = 'n' },
         },
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
-    {'glidenote/memolist.vim'},
-    {'numToStr/Comment.nvim'},
+    { 'glidenote/memolist.vim' },
+    { 'numToStr/Comment.nvim' },
     {
         'previm/previm',
         dependencies = { 'tyru/open-browser.vim' },
