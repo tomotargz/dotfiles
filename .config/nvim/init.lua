@@ -3,7 +3,6 @@ vim.opt.wrap = true
 vim.opt.smartindent = true
 vim.opt.laststatus = 2
 vim.opt.colorcolumn = '80'
-vim.opt.number = false
 vim.opt.scrolloff = 5
 
 -- Tab
@@ -42,7 +41,7 @@ vim.keymap.set('n', '<leader>vv', ':source $MYVIMRC<Return>')
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('n', 'Y', 'y$')
--- vim.keymap.set('i', 'jj', '<Esc>')
+vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
