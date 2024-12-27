@@ -83,7 +83,9 @@ require("lazy").setup({
                 mapping = {
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
                     ['<C-k>'] = cmp.mapping.select_prev_item(),
+                    ['<C-p>'] = cmp.mapping.select_prev_item(),
                     ['<C-j>'] = cmp.mapping.select_next_item(),
+                    ['<C-n>'] = cmp.mapping.select_next_item(),
                 },
             }
 
@@ -149,6 +151,23 @@ require("lazy").setup({
             { '<C-g>', '<cmd>Telescope live_grep<cr>',  mode = 'n' },
         },
         dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require("telescope").setup {
+                defaults = {
+                    file_ignore_patterns = {
+                        ".git/"
+                    },
+                },
+                pickers = {
+                    find_files = {
+                        hidden = true
+                    },
+                    live_grep = {
+                        additional_args = {"--hidden"}
+                    },
+                },
+            }
+        end
     },
     { 'glidenote/memolist.vim' },
     { 'numToStr/Comment.nvim' },
