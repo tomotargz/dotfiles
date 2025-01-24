@@ -61,6 +61,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    { "github/copilot.vim" },
     { "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate" },
     { 'justinmk/vim-dirvish' },
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -163,7 +164,7 @@ require("lazy").setup({
                         hidden = true
                     },
                     live_grep = {
-                        additional_args = {"--hidden"}
+                        additional_args = { "--hidden" }
                     },
                 },
             }

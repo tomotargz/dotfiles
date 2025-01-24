@@ -55,6 +55,11 @@
     if which mise >/dev/null 2>&1; then
         eval "$(/opt/homebrew/bin/mise activate zsh)"
     fi
+
+    # zsh-autosuggestions
+    if brew list zsh-autosuggestions >/dev/null 2>&1; then
+        source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    fi
 }
 
 : "Alias" && {
