@@ -61,7 +61,99 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { "github/copilot.vim" },
+    {
+        'zbirenbaum/copilot.lua',
+        cmd = 'Copilot',
+        event = 'InsertEnter',
+        config = function()
+            require('copilot').setup({
+                suggestions = { enable = false },
+                panels = { enable = false },
+                server_opts_overrides = {
+                    trace = 'verbose',
+                    cmd = {
+                        vim.fn.expand("~/.local/share/nvim/mason/bin/copilot-language-server"),
+                        "--stdio"
+                    },
+                },
+                filetypes = { ["*"] = true },
+            })
+        end
+    },
+    -- { "github/copilot.vim" },
+    {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        dependencies = {
+            { "zbirenbaum/copilot.lua" },                   -- or zbirenbaum/copilot.lua
+            { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+        },
+        build = "make tiktoken",                            -- Only on MacOS or Linux
+        opts = {
+            -- See Configuration section for options
+        },
+
+        -- See Commands section for default commands if you want to lazy load on them
+        config = function()
+            require('CopilotChat').setup({
+                prompts = {
+                    Explain = {
+                        prompt = '選択したコードの説明を日本語で書いてください',
+                        mapping = '<leader>ce',
+                    },
+                    Review = {
+                        prompt = 'コードを日本語でレビューしてください',
+                        mapping = '<leader>cr',
+                    },
+                    Fix = {
+                        prompt = 'このコードには問題があります。バグを修正したコードを表示してください。説明は日本語でお願いします',
+                        mapping = '<leader>cf',
+                    },
+                    Optimize = {
+                        prompt = '選択したコードを最適化し、パフォーマンスと可読性を向上させてください。説明は日本語でお願いします',
+                        mapping = '<leader>co',
+                    },
+                    Docs = {
+                        prompt = '選択したコードに関するドキュメントコメントを日本語で生成してください',
+                        mapping = '<leader>cd',
+                    },
+                    Tests = {
+                        prompt = '選択したコードの詳細なユニットテストを書いてください。説明は日本語でお願いします',
+                        mapping = '<leader>ct',
+                    },
+                    Commit = {
+                        prompt = require('CopilotChat.config.prompts').Commit.prompt,
+                        mapping = '<leader>cco',
+                        selection = require('CopilotChat.select').gitdiff,
+                    },
+                },
+            })
+        end,
+        keys = {
+            {
+                '<leader>cc',
+                function()
+                    require('CopilotChat').toggle()
+                end,
+                desc = 'CopilotChat - Toggle',
+            },
+            {
+                '<leader>cch',
+                function()
+                    local actions = require('CopilotChat.actions')
+                    require('CopilotChat.integrations.telescope').pick(actions.help_actions())
+                end,
+                desc = 'CopilotChat - Help actions',
+            },
+            {
+                '<leader>ccp',
+                function()
+                    local actions = require('CopilotChat.actions')
+                    require('CopilotChat.integrations.telescope').pick(actions.prompt_actions())
+                end,
+                desc = 'CopilotChat - Prompt actions',
+            },
+        },
+    },
     { "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate" },
     { 'justinmk/vim-dirvish' },
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -69,6 +161,12 @@ require("lazy").setup({
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/cmp-path' },
     { 'hrsh7th/cmp-cmdline' },
+    {
+        'zbirenbaum/copilot-cmp',
+        config = function()
+            require('copilot_cmp').setup()
+        end
+    },
     {
         'hrsh7th/nvim-cmp',
         config = function()
@@ -80,6 +178,7 @@ require("lazy").setup({
                     { name = 'buffer' },
                     { name = 'path' },
                     { name = 'cmdline' },
+                    { name = 'copilot' },
                 }),
                 mapping = {
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
