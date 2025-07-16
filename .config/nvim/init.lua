@@ -181,7 +181,13 @@ require("lazy").setup({
                     { name = 'copilot' },
                 }),
                 mapping = {
-                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                    ['<CR>'] = cmp.mapping(function(fallback)
+                        if cmp.visible() and cmp.get_selected_entry() then
+                            cmp.confirm({ select = false })
+                        else
+                            fallback()
+                        end
+                    end, { 'i', 's' }),
                     ['<C-k>'] = cmp.mapping.select_prev_item(),
                     ['<C-p>'] = cmp.mapping.select_prev_item(),
                     ['<C-j>'] = cmp.mapping.select_next_item(),
