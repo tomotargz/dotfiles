@@ -3,7 +3,7 @@ vim.opt.wrap = true
 vim.opt.laststatus = 2
 vim.opt.colorcolumn = '80'
 vim.opt.scrolloff = 5
--- vim.opt.number = true
+vim.opt.number = true
 
 -- Indent
 vim.opt.smarttab = true
