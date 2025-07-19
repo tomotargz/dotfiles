@@ -4,6 +4,7 @@ vim.opt.laststatus = 2
 vim.opt.colorcolumn = '80'
 vim.opt.scrolloff = 5
 vim.opt.number = true
+vim.opt.termguicolors = true
 
 -- Indent
 vim.opt.smarttab = true
@@ -89,6 +90,7 @@ require("lazy").setup({
     spec = {
         -- add your plugins here
         {
+            'lifepillar/vim-colortemplate',
             'zbirenbaum/copilot.lua',
             cmd = 'Copilot',
             event = 'InsertEnter',
@@ -182,21 +184,18 @@ require("lazy").setup({
                 },
             },
         },
-        { "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate" },
+        { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
         { 'justinmk/vim-dirvish' },
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'hrsh7th/cmp-nvim-lsp-signature-help' },
-        { 'hrsh7th/cmp-buffer' },
-        { 'hrsh7th/cmp-path' },
-        { 'hrsh7th/cmp-cmdline' },
-        {
-            'zbirenbaum/copilot-cmp',
-            config = function()
-                require('copilot_cmp').setup()
-            end
-        },
         {
             'hrsh7th/nvim-cmp',
+            dependencies = {
+                { 'hrsh7th/cmp-nvim-lsp' },
+                { 'hrsh7th/cmp-nvim-lsp-signature-help' },
+                { 'hrsh7th/cmp-buffer' },
+                { 'hrsh7th/cmp-path' },
+                { 'hrsh7th/cmp-cmdline' },
+                { 'zbirenbaum/copilot-cmp', },
+            },
             config = function()
                 local cmp = require('cmp')
                 cmp.setup {
@@ -287,9 +286,7 @@ require("lazy").setup({
         },
         {
             "j-hui/fidget.nvim",
-            opts = {
-                -- options
-            },
+            opts = {},
         },
     },
     -- Configure any other settings here. See the documentation for more details.
