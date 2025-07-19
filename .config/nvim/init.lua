@@ -243,17 +243,6 @@ require("lazy").setup({
         {
             "mason-org/mason-lspconfig.nvim",
             opts = {},
-            config = function()
-                vim.lsp.config('lua_ls', {
-                    settings = {
-                        Lua = {
-                            diagnostics = {
-                                globals = { 'vim' }
-                            },
-                        }
-                    },
-                })
-            end,
             dependencies = {
                 { "mason-org/mason.nvim", opts = {} },
                 "neovim/nvim-lspconfig",
@@ -308,4 +297,14 @@ require("lazy").setup({
     install = { colorscheme = { "kuro" } },
     -- automatically check for plugin updates
     checker = { enabled = true },
+})
+
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            },
+        }
+    },
 })
