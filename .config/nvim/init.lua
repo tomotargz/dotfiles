@@ -47,7 +47,9 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 vim.keymap.set('i', 'jj', '<Esc>')
-
+vim.keymap.set('n', '<leader>f', function()
+    vim.lsp.buf.format { async = true }
+end)
 -- Commands
 vim.api.nvim_create_user_command(
     'Vimrc',
@@ -109,10 +111,10 @@ require("lazy").setup({
         {
             "CopilotC-Nvim/CopilotChat.nvim",
             dependencies = {
-                { "zbirenbaum/copilot.lua" },               -- or zbirenbaum/copilot.lua
+                { "zbirenbaum/copilot.lua" },                   -- or zbirenbaum/copilot.lua
                 { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
             },
-            build = "make tiktoken",                        -- Only on MacOS or Linux
+            build = "make tiktoken",                            -- Only on MacOS or Linux
             opts = {
                 -- See Configuration section for options
             },
@@ -136,6 +138,7 @@ require("lazy").setup({
                         Optimize = {
                             prompt = '選択したコードを最適化し、パフォーマンスと可読性を向上させてください。説明は日本語でお願いします',
                             mapping = '<leader>co',
+                            cpu
                         },
                         Docs = {
                             prompt = '選択したコードに関するドキュメントコメントを日本語で生成してください',
@@ -237,37 +240,24 @@ require("lazy").setup({
                 })
             end
         },
-        { 'williamboman/mason.nvim' },
-        { 'williamboman/mason-lspconfig.nvim' },
-        { 'neovim/nvim-lspconfig' },
-        { 'L3MON4D3/LuaSnip' },
         {
-            'VonHeikemen/lsp-zero.nvim',
-            branch = 'v3.x',
+            "mason-org/mason-lspconfig.nvim",
+            opts = {},
             config = function()
-                local lsp_zero = require('lsp-zero')
-                lsp_zero.extend_lspconfig()
-                lsp_zero.on_attach(function(client, bufnr)
-                    -- see :help lsp-zero-keybindings
-                    -- to learn the available actions
-                    lsp_zero.default_keymaps({ buffer = bufnr })
-                    vim.keymap.set('n', '<leader>f', function()
-                        vim.lsp.buf.format { async = true }
-                    end, opts)
-                end)
-
-                -- to learn how to use mason.nvim
-                -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
-                require('mason').setup({})
-                require('mason-lspconfig').setup({
-                    ensure_installed = {},
-                    handlers = {
-                        function(server_name)
-                            require('lspconfig')[server_name].setup({})
-                        end,
+                vim.lsp.config('lua_ls', {
+                    settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = { 'vim' }
+                            },
+                        }
                     },
                 })
-            end
+            end,
+            dependencies = {
+                { "mason-org/mason.nvim", opts = {} },
+                "neovim/nvim-lspconfig",
+            },
         },
         {
             'tomotargz/kuro.vim',
