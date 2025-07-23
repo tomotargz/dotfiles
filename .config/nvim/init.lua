@@ -90,7 +90,6 @@ require("lazy").setup({
     spec = {
         -- add your plugins here
         {
-            'lifepillar/vim-colortemplate',
             'zbirenbaum/copilot.lua',
             cmd = 'Copilot',
             event = 'InsertEnter',
@@ -220,6 +219,7 @@ require("lazy").setup({
                         ['<C-j>'] = cmp.mapping.select_next_item(),
                         ['<C-n>'] = cmp.mapping.select_next_item(),
                     },
+                    preselect = cmp.PreselectMode.None,
                 }
 
                 cmp.setup.cmdline('/', {
@@ -249,8 +249,14 @@ require("lazy").setup({
         },
         {
             'tomotargz/kuro.vim',
+            -- config = function()
+            --     vim.cmd.colorscheme 'kuro'
+            -- end,
+        },
+        {
+            'cocopon/iceberg.vim',
             config = function()
-                vim.cmd.colorscheme 'kuro'
+                vim.cmd.colorscheme 'iceberg'
             end,
         },
         {
