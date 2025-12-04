@@ -1,7 +1,2 @@
 **/.DS_Store
-.vim/plugged
-.vim/.netrwhist
-.vim/autoload/plug.vim.old
-.config/nvim/lazy-lock.json
-.config/mise
-.config/git/ignore
+nvim/.config/nvim/lazy-lock.json
