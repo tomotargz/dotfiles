@@ -1,12 +1,7 @@
 return {
     {
         'nvim-mini/mini.completion',
-        opts = {
-        },
-        -- keys = {
-        --     { "<C-p>", "<cmd>Pick files<cr>" },
-        -- },
+        opts = {},
         version = false,
-        lazy = false,
     }
 }

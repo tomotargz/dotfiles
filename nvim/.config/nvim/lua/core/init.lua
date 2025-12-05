@@ -35,6 +35,9 @@ vim.keymap.set('n', '<leader>h', ':noh<Return>')
 vim.keymap.set('n', '<leader>f', function()
     vim.lsp.buf.format { async = true }
 end)
+vim.keymap.set('n', '<leader>d', function()
+    vim.diagnostic.setloclist {}
+end)
 
 -- Commands
 vim.api.nvim_create_user_command(
@@ -52,3 +55,13 @@ vim.api.nvim_create_user_command(
     end,
     {}
 )
+
+vim.lsp.config("lua_ls", {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" }
+            }
+        }
+    }
+})
